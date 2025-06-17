@@ -1,11 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import { Textarea } from '@/components/ui/textarea'
-import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
+import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/ui/dialog'
+import { Textarea } from '@/components/ui/textarea'
+import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
-import remarkBreaks from 'remark-breaks'
 
 export default function Home() {
   const [value, setValue] = useState('')
@@ -21,18 +20,14 @@ export default function Home() {
           placeholder="Enter markdown here..."
         />
         <div
-          className="rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900 space-y-4"
+          className="space-y-4 rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900"
           onClick={() => setIsOpen(true)}
         >
-          <ReactMarkdown remarkPlugins={[remarkBreaks]}>
-            {value}
-          </ReactMarkdown>
+          <ReactMarkdown className="prose dark:prose-invert max-w-none whitespace-pre-line">{value}</ReactMarkdown>
         </div>
         <Dialog open={isOpen} onClose={setIsOpen}>
           <DialogTitle>Placeholder</DialogTitle>
-          <DialogDescription>
-            More detailed word definitions will appear here.
-          </DialogDescription>
+          <DialogDescription>More detailed word definitions will appear here.</DialogDescription>
           <DialogBody>
             <p>Ceci est un texte de remplacement.</p>
           </DialogBody>
