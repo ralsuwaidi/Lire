@@ -4,11 +4,18 @@ Lire is a simple tool for reading French text. It displays pre-written passages 
 
 ## Getting Started
 
-Install dependencies and start the development server:
+Install dependencies (which includes the `remark-breaks` plugin) and start the development server:
 
 ```bash
 npm install
 npm run dev
+```
+
+If the build fails with `Module not found: Can't resolve 'remark-breaks'`, install the
+plugin manually:
+
+```bash
+npm install remark-breaks
 ```
 
 Then open [http://localhost:3000](http://localhost:3000) to view the application.

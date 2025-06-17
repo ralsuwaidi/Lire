@@ -5,7 +5,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import remarkBreaks from 'remark-breaks'
 
 export default function Home() {
   const [value, setValue] = useState('')
@@ -21,10 +21,10 @@ export default function Home() {
           placeholder="Enter markdown here..."
         />
         <div
-          className="rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900"
+          className="rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900 space-y-4"
           onClick={() => setIsOpen(true)}
         >
-          <ReactMarkdown remarkPlugins={[remarkGfm]} className="space-y-4">
+          <ReactMarkdown remarkPlugins={[remarkBreaks]}>
             {value}
           </ReactMarkdown>
         </div>
