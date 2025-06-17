@@ -23,7 +23,9 @@ export default function Home() {
           className="space-y-4 rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900"
           onClick={() => setIsOpen(true)}
         >
-          <ReactMarkdown className="prose dark:prose-invert max-w-none whitespace-pre-line">{value}</ReactMarkdown>
+          <div className="prose dark:prose-invert max-w-none whitespace-pre-line">
+            <ReactMarkdown>{value}</ReactMarkdown>
+          </div>
         </div>
         <Dialog open={isOpen} onClose={setIsOpen}>
           <DialogTitle>Placeholder</DialogTitle>
