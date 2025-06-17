@@ -2,7 +2,21 @@
 
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/ui/dialog'
+import { Navbar } from '@/components/ui/navbar'
+import {
+  Sidebar,
+  SidebarBody,
+  SidebarItem,
+  SidebarLabel,
+  SidebarSection,
+} from '@/components/ui/sidebar'
+import { SidebarLayout } from '@/components/ui/sidebar-layout'
 import { Textarea } from '@/components/ui/textarea'
+import {
+  Cog6ToothIcon,
+  HomeIcon,
+  QuestionMarkCircleIcon,
+} from '@heroicons/react/20/solid'
 import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 
@@ -11,7 +25,33 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <main className="flex min-h-dvh flex-col items-center p-6 lg:p-10">
+    <SidebarLayout
+      navbar={
+        <Navbar>
+          <span className="font-semibold">Lire</span>
+        </Navbar>
+      }
+      sidebar={
+        <Sidebar>
+          <SidebarBody>
+            <SidebarSection>
+              <SidebarItem href="#" current>
+                <HomeIcon />
+                <SidebarLabel>Home</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="#">
+                <QuestionMarkCircleIcon />
+                <SidebarLabel>About</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="#">
+                <Cog6ToothIcon />
+                <SidebarLabel>Settings</SidebarLabel>
+              </SidebarItem>
+            </SidebarSection>
+          </SidebarBody>
+        </Sidebar>
+      }
+    >
       <div className="w-full max-w-3xl space-y-6">
         <Textarea
           value={value}
@@ -38,6 +78,6 @@ export default function Home() {
           </DialogActions>
         </Dialog>
       </div>
-    </main>
+    </SidebarLayout>
   )
 }
