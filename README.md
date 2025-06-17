@@ -1,15 +1,14 @@
-# Catalyst Demo
+# Lire
 
-To run the Catalyst demo, first install the npm dependencies:
+Lire is a simple tool for reading French text. It displays pre-written passages and lets you click any word to see its definition and sample sentences for how it can be used.
+
+## Getting Started
+
+Install dependencies and start the development server:
 
 ```bash
 npm install
-```
-
-Next, run the development server:
-
-```bash
 npm run dev
 ```
 
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+Then open [http://localhost:3000](http://localhost:3000) to view the application.
