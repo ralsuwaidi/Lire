@@ -16,7 +16,7 @@ import {
   QuestionMarkCircleIcon,
 } from '@heroicons/react/20/solid'
 import { useState } from 'react'
-import { ReadlangText } from '@/components/readlang-text'
+import ReactMarkdown from 'react-markdown'
 
 export default function Home() {
   const [value, setValue] = useState('')
@@ -57,7 +57,7 @@ export default function Home() {
           placeholder="Enter markdown here..."
         />
         <div className="space-y-4 rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
-          <ReadlangText text={value} />
+          <ReactMarkdown className="prose dark:prose-invert">{value}</ReactMarkdown>
         </div>
       </div>
     </SidebarLayout>
