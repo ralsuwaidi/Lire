@@ -1,7 +1,5 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import { Navbar } from '@/components/ui/navbar'
 import {
   Sidebar,
@@ -18,11 +16,10 @@ import {
   QuestionMarkCircleIcon,
 } from '@heroicons/react/20/solid'
 import { useState } from 'react'
-import ReactMarkdown from 'react-markdown'
+import { ReadlangText } from '@/components/readlang-text'
 
 export default function Home() {
   const [value, setValue] = useState('')
-  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <SidebarLayout
@@ -59,24 +56,9 @@ export default function Home() {
           className="h-40"
           placeholder="Enter markdown here..."
         />
-        <div
-          className="space-y-4 rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900"
-          onClick={() => setIsOpen(true)}
-        >
-          <div className="prose dark:prose-invert max-w-none whitespace-pre-line">
-            <ReactMarkdown>{value}</ReactMarkdown>
-          </div>
+        <div className="space-y-4 rounded-lg border border-zinc-950/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+          <ReadlangText text={value} />
         </div>
-        <Dialog open={isOpen} onClose={setIsOpen}>
-          <DialogTitle>Placeholder</DialogTitle>
-          <DialogDescription>More detailed word definitions will appear here.</DialogDescription>
-          <DialogBody>
-            <p>Ceci est un texte de remplacement.</p>
-          </DialogBody>
-          <DialogActions>
-            <Button onClick={() => setIsOpen(false)}>Close</Button>
-          </DialogActions>
-        </Dialog>
       </div>
     </SidebarLayout>
   )
