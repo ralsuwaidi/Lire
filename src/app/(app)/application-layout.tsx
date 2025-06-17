@@ -22,7 +22,6 @@ import {
   SidebarSpacer,
 } from '@/components/ui/sidebar'
 import { SidebarLayout } from '@/components/ui/sidebar-layout'
-import { getEvents } from '@/data'
 import {
   ArrowRightStartOnRectangleIcon,
   ChevronDownIcon,
@@ -69,10 +68,8 @@ function AccountDropdownMenu({ anchor }: { anchor: 'top start' | 'bottom end' })
 }
 
 export function ApplicationLayout({
-  events,
   children,
 }: {
-  events: Awaited<ReturnType<typeof getEvents>>
   children: React.ReactNode
 }) {
   let pathname = usePathname()
@@ -130,10 +127,6 @@ export function ApplicationLayout({
                 <HomeIcon />
                 <SidebarLabel>Home</SidebarLabel>
               </SidebarItem>
-              <SidebarItem href="/events" current={pathname.startsWith('/events')}>
-                <Square2StackIcon />
-                <SidebarLabel>Events</SidebarLabel>
-              </SidebarItem>
               <SidebarItem href="/orders" current={pathname.startsWith('/orders')}>
                 <TicketIcon />
                 <SidebarLabel>Orders</SidebarLabel>
@@ -144,14 +137,7 @@ export function ApplicationLayout({
               </SidebarItem>
             </SidebarSection>
 
-            <SidebarSection className="max-lg:hidden">
-              <SidebarHeading>Upcoming Events</SidebarHeading>
-              {events.map((event) => (
-                <SidebarItem key={event.id} href={event.url}>
-                  {event.name}
-                </SidebarItem>
-              ))}
-            </SidebarSection>
+            {/* Events section removed */}
 
             <SidebarSpacer />
 
